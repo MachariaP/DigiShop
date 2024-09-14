@@ -16,7 +16,6 @@ from datetime import timedelta
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
@@ -27,7 +26,6 @@ SECRET_KEY = 'django-insecure-lfj8&n!sx23gjdei3$^k-5az-p-&v0p@2qvu8o@6_ag$$0g$wh
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -50,8 +48,7 @@ INSTALLED_APPS = [
     # Third Party Apps
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
-
-
+    'drf_yasg',  # Swagger API Documentation
 ]
 
 MIDDLEWARE = [
@@ -84,7 +81,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
@@ -94,7 +90,6 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -114,7 +109,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -125,7 +119,6 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
@@ -139,7 +132,7 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-
+# Custom user model
 AUTH_USER_MODEL = 'userauths.User'
 
 # Default primary key field type
@@ -147,7 +140,7 @@ AUTH_USER_MODEL = 'userauths.User'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# Django REST Framework Simple JWT settings
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
     'REFRESH_TOKEN_LIFETIME': timedelta(days=50),
@@ -180,7 +173,7 @@ SIMPLE_JWT = {
     'SLIDING_TOKEN_REFRESH_LIFETIME': timedelta(days=1),
 }
 
-
+# Jazzmin settings for customizing the Django admin interface
 JAZZMIN_SETTINGS = {
     "site_title": "Desphixs",
     "site_header": "Desphixs",
@@ -236,7 +229,6 @@ JAZZMIN_SETTINGS = {
         "store.Tag": "fas fa-tag",
         "store.Wishlist": "fas fa-heart",
         "store.Notification": "fas fa-bell",
-
     },
     "default_icon_parents": "fas fa-chevron-circle-right",
     "default_icon_children": "fas fa-arrow-circle-right",
@@ -250,19 +242,16 @@ JAZZMIN_SETTINGS = {
         "auth.user": "collapsible",
         "auth.group": "vertical_tabs",
     },
+    'site_tittle': "DigiShop",
+    'site_header': "DigiShop",
+    'site_brand': "DigiShop",
+    'welcome_sign': "Welcome to DigiShop",
+    'copyright': "DigiShop",
+    'show_sidebar': True,
+    'show_ui_builder': True,
 }
 
-
-JAZZMIN_SETTINGS = {
-    'site_tittle':"DigiShop",
-    'site_header':"DigiShop",
-    'site_brand':"DigiShop",
-    'welcome_sign':"Welcome to DigiShop",
-    'copyright':"DigiShop",
-    'show_sidebar':True,
-    'show_ui_builder':True,
-        }
-
+# Jazzmin UI tweaks for customizing the Django admin interface
 JAZZMIN_UI_TWEAKS = {
     "navbar_small_text": False,
     "footer_small_text": False,
