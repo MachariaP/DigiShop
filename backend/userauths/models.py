@@ -97,12 +97,14 @@ def create_user_profile(sender, instance, created, **kwargs):
     A signal that creates a profile for a user when a user is created.
     """
     if created:
+        print(f"Creating profile for user: {instance.email}")
         Profile.objects.create(user=instance)
 
 def save_user_profile(sender, instance, **kwargs):
     """
     A signal that saves the profile when the user is saved.
     """
+    print(f"Saving profile for user: {instance.email}")
     instance.profile.save()
 
 post_save.connect(create_user_profile, sender=User)
